@@ -16,6 +16,7 @@ This project is a RESTful API built with Flask, SQLAlchemy, and Flask-RESTful to
 * Token-protected endpoints for modifying data
 * SQLite as a development database
 * Includes unit, integration, and system tests
+* Postman collection for system-level testing
 
 ---
 
@@ -66,7 +67,33 @@ intership-api/
 
 * Register at `/register`
 * Login at `/login`
-* Use `Bearer <token>` in the `Authorization` header for protected routes
+* Use `Bearer <token>` in the `Authorization` header for protected routes:
+
+  * POST, PUT, DELETE for interns and universities require authentication
+
+---
+
+## 📡 API Endpoints
+
+### User
+
+* `POST /register` – Register new user
+* `POST /login` – Login and receive JWT token
+
+### University
+
+* `GET /universities` – List all universities
+* `POST /universities` – Create a new university (protected)
+* `GET /university/<university_id>` – Get a specific university
+* `DELETE /university/<university_id>` – Delete a university (protected)
+
+### Intern
+
+* `GET /interns` – List all interns
+* `POST /interns` – Create a new intern (protected)
+* `GET /interns/<intern_id>` – Get a specific intern
+* `PUT /interns/<intern_id>` – Update intern (protected)
+* `DELETE /interns/<intern_id>` – Delete intern (protected)
 
 ---
 
@@ -95,7 +122,7 @@ Location: `tests/system/test_system.py`
   * Create university
   * Create intern
 
-To run all tests:
+To run all Python tests:
 
 ```bash
 python -m unittest discover
@@ -105,14 +132,23 @@ python -m unittest discover
 
 ## 🧪 Postman Testing
 
-* Collection and environment JSON files included
-* Tests cover:
+* Collection and environment JSON files included in the Postman/ folder
+* Tests include:
 
-  * User registration & login
-  * University creation & listing
-  * Intern creation, listing, updating, deleting
+  * Status code checks
+  * Response body validation
+  * Token extraction and usage
+* Use Collection Runner in Postman to run system tests
 
-Use Postman's Collection Runner for system-level API testing.
+---
+
+## 📦 Deliverables
+
+* ✅ Source code with app, models, resources, and database setup
+* ✅ Postman collection & environment files
+* ✅ Python test scripts for unit, integration, and system testing
+* ✅ README with documentation
+* ✅ Screenshots of Postman test results (if required)
 
 ---
 
@@ -127,4 +163,4 @@ Use Postman's Collection Runner for system-level API testing.
 Thank you for reviewing this project!
 Feel free to reach out if you have questions or suggestions.
 
-— Amel Adzemi
+adzemi.amel@gmail.com
